@@ -8,12 +8,12 @@ export const socialData = [
         url:'https://facebook.com'
     },
     {
-        id:1,
+        id:2,
         icon:<FaTwitter className="icon"/>,
         url:'https://facebook.com'
     },
     {
-        id:1,
+        id:3,
         icon:<FaLinkedin className="icon"/>,
         url:'https://facebook.com'
     }
