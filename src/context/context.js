@@ -1,7 +1,7 @@
 import React, {Component} from 'react';
 import {linkData} from "./linkData";
 import {socialData} from './socialData'
-import {items} from "./productData";
+import {items} from "./productData.js";
 
 const ProductContext = React.createContext();
 
