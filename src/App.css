@@ -43,3 +43,7 @@ body{
 .cart-icon{
   cursor: pointer;
 }
+
+input[type=range]{
+  width: 90%;
+}

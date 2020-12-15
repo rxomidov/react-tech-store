@@ -1,7 +1,8 @@
 import React, {Component} from 'react';
 import {linkData} from "./linkData";
 import {socialData} from './socialData'
-import {items} from "./productData";
+// import {items} from "./productData";
+import {client} from "./contentful";
 
 const ProductContext = React.createContext();
 
@@ -31,7 +32,13 @@ class ProductProvider extends Component {
 
     componentDidMount() {
         //from contentful item
-        this.setProducts(items);
+        // this.setProducts(items);
+        client
+            .getEntries({
+                content_type: "techStoreProductExample"
+            })
+            .then(response => this.setProducts(response.items))
+            .catch(console.error);
     }
 
     setProducts = products => {
@@ -140,7 +147,7 @@ class ProductProvider extends Component {
     };
     setSingleProduct = (id) => {
         let product = this.state.storeProducts.find(item =>
-            item.id == id)
+            item.id === id)
         localStorage.setItem('singleProduct', JSON.stringify(product))
         this.setState({
             singleProduct: {...product},
@@ -229,7 +236,7 @@ class ProductProvider extends Component {
     }
     handleChange = (event) => {
         const name = event.target.name;
-        const value = event.target.type === "checked" ?
+        const value = event.target.type === "checkbox" ?
             event.target.checked : event.target.value;
         this.setState({
             [name]: value
@@ -248,21 +255,21 @@ class ProductProvider extends Component {
             tempProducts = tempProducts.filter(item =>
                 item.company === company)
         }
-        if (shipping){
-            tempProducts = tempProducts.filter(item=>
-            item.shipping === true)
+        if (shipping) {
+            tempProducts = tempProducts.filter(item =>
+                item.freeShipping === true)
         }
-        if (search.length>0){
-            tempProducts = tempProducts.filter(item=>{
+        if (search.length > 0) {
+            tempProducts = tempProducts.filter(item => {
                 let tempSearch = search.toLowerCase();
                 let tempTitle = item.title.toLowerCase()
-                    .slice(0,search.length);
-                if (tempSearch === tempTitle){
+                    .slice(0, search.length);
+                if (tempSearch === tempTitle) {
                     return item;
                 }
             })
         }
-        console.log(tempProducts)
+        //console.log(tempProducts)
         this.setState({
             filteredProducts: tempProducts
         });

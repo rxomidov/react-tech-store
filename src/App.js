@@ -1,8 +1,7 @@
-import {FaHome} from "react-icons/all";
+//import {FaHome} from "react-icons/all";
 import './App.css';
 import React, {Component} from "react";
 import 'bootstrap/dist/css/bootstrap.min.css'
-import styled from "styled-components";
 
 import {Route, Switch} from 'react-router-dom'
 import SingleProductPage from "./pages/SingleProductPage";
@@ -41,12 +40,5 @@ class App extends Component {
         );
     }
 }
-
-const color = '#f15025'
-const Button = styled.button`
-    color: red;
-    background: ${color};
-    font-size: ${props => (props.large ? "3rem" : "1rem")};
-`
 
 export default App;

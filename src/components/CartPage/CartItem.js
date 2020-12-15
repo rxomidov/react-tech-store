@@ -12,7 +12,7 @@ export default function CartItem(
         text-center align-items-center">
             {/*    image*/}
             <div className="col-10 mx-auto col-lg-2 pb-2">
-                <img src={image} alt="image" width="60"
+                <img src={image} width="60"
                      className="img-fluid" alt="product"/>
             </div>
             <div className="col-10 mx-auto col-lg-2 pb-2">

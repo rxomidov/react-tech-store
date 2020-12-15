@@ -73,6 +73,7 @@ export default function ProductFilter(props) {
                                 <div>
                                     <label htmlFor="shipping" className="mx-2">
                                         free shipping
+
                                     </label>
                                     <input
                                         type="checkbox"
