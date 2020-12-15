@@ -1,5 +1,5 @@
 import React from 'react';
-import spBg from '../images/singleProductBcg.jpeg'
+import spBg from '../images/singleProductBcg.jpeg';
 import {ProductConsumer} from "../context";
 import Hero from "../components/Hero";
 import {Link} from "react-router-dom";
